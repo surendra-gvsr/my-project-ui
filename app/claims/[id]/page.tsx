@@ -23,9 +23,19 @@ import {
   Loader2,
   Mail,
   Sparkles,
+  X,
 } from 'lucide-react';
 
 type Purpose = 'Settlement' | 'Litigation' | 'SIU' | 'Audit';
+
+const WORKSPACE_DEMO_FILES = [
+  { href: '/demo/sample-claim-notes.txt', label: 'Sample Claim Notes' },
+  { href: '/demo/sample-medical-report.txt', label: 'Sample Medical Report' },
+  {
+    href: '/demo/sample-witness-statement.txt',
+    label: 'Sample Witness Statement',
+  },
+] as const;
 
 function getMockClaim(id: string): {
   number: string;
@@ -104,6 +114,7 @@ export default function ClaimWorkspacePage() {
   const claimId = params.id;
   const claim = getMockClaim(claimId);
 
+  const [showDemoBanner, setShowDemoBanner] = useState(true);
   const [documents, setDocuments] = useState<DocumentMetadata[]>([]);
   const [loadingDocs, setLoadingDocs] = useState(true);
   const [processingResults, setProcessingResults] = useState<
@@ -281,6 +292,37 @@ export default function ClaimWorkspacePage() {
       <div className="mx-auto max-w-2xl space-y-6 px-4 py-8">
         {/* Upload */}
         <section className="space-y-3">
+          {showDemoBanner && (
+            <div className="rounded-lg border border-dashed bg-muted/20 p-3">
+              <div className="flex items-start justify-between gap-2">
+                <div className="space-y-2">
+                  <p className="text-xs font-medium text-muted-foreground">
+                    Need test files? Download and upload these:
+                  </p>
+                  <div className="flex flex-wrap gap-2">
+                    {WORKSPACE_DEMO_FILES.map((f) => (
+                      <a
+                        key={f.href}
+                        href={f.href}
+                        download
+                        className="inline-flex items-center gap-1 text-xs text-primary hover:underline focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+                      >
+                        <FileText className="size-3 shrink-0" />
+                        {f.label}
+                      </a>
+                    ))}
+                  </div>
+                </div>
+                <button
+                  onClick={() => setShowDemoBanner(false)}
+                  aria-label="Dismiss demo files banner"
+                  className="shrink-0 rounded p-0.5 text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors"
+                >
+                  <X className="size-3.5" />
+                </button>
+              </div>
+            </div>
+          )}
           <h2 className="text-base font-semibold">Upload Documents</h2>
           <DocumentUploader
             claimId={claimId}

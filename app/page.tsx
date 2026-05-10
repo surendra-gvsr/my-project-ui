@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { Brain, FileText, Plus } from 'lucide-react';
+import { Brain, Download, FileText, Plus } from 'lucide-react';
 import { isAuthenticated, logout } from '@/lib/auth';
 
 type ClaimStatus = 'Draft' | 'In Review' | 'Complete';
@@ -68,6 +68,15 @@ function formatDate(iso: string) {
     year: 'numeric',
   });
 }
+
+const DEMO_FILES = [
+  { href: '/demo/sample-claim-notes.txt', label: 'Sample Claim Notes' },
+  { href: '/demo/sample-medical-report.txt', label: 'Sample Medical Report' },
+  {
+    href: '/demo/sample-witness-statement.txt',
+    label: 'Sample Witness Statement',
+  },
+] as const;
 
 // Compute stat counts from the claims array
 const totalClaims = CLAIMS.length;
@@ -218,6 +227,31 @@ export default function DashboardPage() {
               ))}
             </div>
           )}
+        </div>
+
+        {/* Demo files banner */}
+        <div className="border-t bg-muted/30">
+          <div className="mx-auto max-w-2xl px-4 py-4">
+            <div className="flex flex-wrap items-center gap-3">
+              <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                <Download className="size-3.5 shrink-0" />
+                <span>New to EvidenceIQ? Try it with sample files</span>
+              </div>
+              <div className="flex flex-wrap gap-2">
+                {DEMO_FILES.map((f) => (
+                  <a
+                    key={f.href}
+                    href={f.href}
+                    download
+                    className="inline-flex items-center gap-1 rounded-md border bg-background px-2.5 py-1 text-xs text-foreground hover:bg-muted focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors"
+                  >
+                    <FileText className="size-3 shrink-0 text-muted-foreground" />
+                    {f.label}
+                  </a>
+                ))}
+              </div>
+            </div>
+          </div>
         </div>
       </main>
     </div>

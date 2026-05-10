@@ -10,7 +10,7 @@ import {
   SelectValue,
 } from '@/components/ui/select';
 import { cn } from '@/lib/utils';
-import { Brain } from 'lucide-react';
+import { Brain, FileText } from 'lucide-react';
 import Link from 'next/link';
 import { useState } from 'react';
 
@@ -79,6 +79,21 @@ const INDUSTRY_OPTIONS: { value: Industry; label: string }[] = [
   { value: 'finance', label: '💼 Finance / Audit' },
   { value: 'insurance', label: '🛡️ Insurance / Claims' },
 ];
+
+const INDUSTRY_DEMO: Record<Industry, { href: string; label: string }> = {
+  law: {
+    href: '/demo/sample-witness-statement.txt',
+    label: 'Try with a sample witness statement',
+  },
+  finance: {
+    href: '/demo/sample-claim-notes.txt',
+    label: 'Try with sample claim notes',
+  },
+  insurance: {
+    href: '/demo/sample-medical-report.txt',
+    label: 'Try with a sample medical report',
+  },
+};
 
 const VALID_INDUSTRIES = new Set<string>(['law', 'finance', 'insurance']);
 
@@ -189,6 +204,16 @@ export default function WelcomePage() {
             content ? 'opacity-100' : 'pointer-events-none opacity-0'
           )}
         >
+          {industry && (
+            <a
+              href={INDUSTRY_DEMO[industry].href}
+              download
+              className="inline-flex items-center gap-1.5 text-xs text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring transition-colors"
+            >
+              <FileText className="size-3.5 shrink-0" />
+              {INDUSTRY_DEMO[industry].label}
+            </a>
+          )}
           <Link
             href="/"
             className={cn(
