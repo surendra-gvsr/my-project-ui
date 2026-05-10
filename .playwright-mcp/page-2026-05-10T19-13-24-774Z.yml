@@ -1,0 +1,24 @@
+- generic [active] [ref=e1]:
+    - main [ref=e2]:
+        - generic [ref=e3]:
+            - generic [ref=e4]:
+                - img [ref=e6]
+                - generic [ref=e14]:
+                    - heading "EvidenceIQ" [level=1] [ref=e15]
+                    - paragraph [ref=e16]: AI-Powered Claims Evidence Management
+            - generic [ref=e18]:
+                - generic [ref=e19]:
+                    - generic [ref=e20]:
+                        - generic [ref=e21]: Email address
+                        - textbox "Email address" [ref=e22]:
+                            - /placeholder: adjuster@evidenceiq.com
+                    - generic [ref=e23]:
+                        - generic [ref=e24]: Password
+                        - textbox "Password" [ref=e25]:
+                            - /placeholder: ••••••••
+                    - button "Sign in to EvidenceIQ" [ref=e26]: Sign In
+                - generic [ref=e27]:
+                    - paragraph [ref=e28]: Demo credentials
+                    - paragraph [ref=e29]: adjuster@evidenceiq.com / demo1234
+    - button "Open Next.js Dev Tools" [ref=e35] [cursor=pointer]:
+        - img [ref=e36]

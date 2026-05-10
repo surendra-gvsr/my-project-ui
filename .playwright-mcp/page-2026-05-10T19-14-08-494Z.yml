@@ -1,0 +1,46 @@
+- generic [ref=e1]:
+    - main [ref=e2]:
+        - generic [ref=e3]:
+            - generic [ref=e4]:
+                - img [ref=e6]
+                - generic [ref=e14]: EvidenceIQ
+            - generic [ref=e15]:
+                - heading "Welcome to EvidenceIQ" [level=1] [ref=e16]
+                - paragraph [ref=e17]: Select your industry to see how EvidenceIQ works for you
+            - generic [ref=e18]:
+                - combobox "Select your industry" [active] [ref=e19]:
+                    - generic [ref=e20]: insurance
+                    - img: ▼
+                - textbox [ref=e21]: insurance
+            - generic [ref=e44]:
+                - generic [ref=e46]:
+                    - heading "Built for Claims Professionals" [level=2] [ref=e47]
+                    - paragraph [ref=e48]: SIU investigators and adjusters juggle police reports, medical records, photos, and recorded statements across every claim. Building a defensible evidence file by hand takes days and still risks gaps. EvidenceIQ does the heavy lifting so your team can focus on decisions, not document wrangling.
+                    - list "Key features" [ref=e49]:
+                        - listitem [ref=e50]:
+                            - generic [ref=e51]: ✓
+                            - generic [ref=e52]: Centralise all claim documents — photos, reports, statements
+                        - listitem [ref=e53]:
+                            - generic [ref=e54]: ✓
+                            - generic [ref=e55]: Auto-detect inconsistencies across claimant narratives
+                        - listitem [ref=e56]:
+                            - generic [ref=e57]: ✓
+                            - generic [ref=e58]: Produce defensible evidence packs ready for litigation or settlement
+                - generic [ref=e59]:
+                    - generic [ref=e61]:
+                        - generic [ref=e62]: 90% faster
+                        - generic [ref=e63]: Evidence file assembly
+                    - generic [ref=e65]:
+                        - generic [ref=e66]: Defensible
+                        - generic [ref=e67]: Audit-trail quality
+                    - generic [ref=e69]:
+                        - generic [ref=e70]: SIU ready
+                        - generic [ref=e71]: Output format
+            - generic [ref=e72]:
+                - link "Go to dashboard" [ref=e73] [cursor=pointer]:
+                    - /url: /
+                    - text: Go to Dashboard →
+                - paragraph [ref=e74]: Your claims dashboard is ready. You can return to this page any time from the header.
+    - button "Open Next.js Dev Tools" [ref=e27] [cursor=pointer]:
+        - img [ref=e28]
+    - alert [ref=e31]

@@ -1,7 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server';
 
 // Cookie name and expected value — must match lib/auth.ts
-const SESSION_COOKIE = 'claimspack-session';
+const SESSION_COOKIE = 'evidenceiq-session';
 const AUTHENTICATED_VALUE = 'authenticated';
 
 // Paths that always pass through without an auth check.
@@ -26,9 +26,9 @@ export function middleware(request: NextRequest): NextResponse {
   const sessionCookie = request.cookies.get(SESSION_COOKIE);
   const isAuthenticated = sessionCookie?.value === AUTHENTICATED_VALUE;
 
-  // Step 3: authenticated users must not revisit /login — redirect to home.
+  // Step 3: authenticated users must not revisit /login — redirect to welcome.
   if (isAuthenticated && pathname === '/login') {
-    return NextResponse.redirect(new URL('/', request.url));
+    return NextResponse.redirect(new URL('/welcome', request.url));
   }
 
   // Step 4: authenticated users may proceed to any other path.

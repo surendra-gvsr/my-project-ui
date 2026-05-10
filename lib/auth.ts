@@ -3,8 +3,8 @@
 //
 // DEMO ONLY — these credentials are intentionally public (displayed on the login page).
 // Replace with a real auth provider before any production deployment.
-const SESSION_KEY = 'claimspack-session';
-const VALID_EMAIL = 'adjuster@claimspace.com';
+const SESSION_KEY = 'evidenceiq-session';
+const VALID_EMAIL = 'adjuster@evidenceiq.com';
 const VALID_PASSWORD = 'demo1234';
 
 /**

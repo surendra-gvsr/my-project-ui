@@ -1,0 +1,29 @@
+- generic [ref=e1]:
+    - main [ref=e2]:
+        - generic [ref=e3]:
+            - generic [ref=e4]:
+                - img [ref=e6]
+                - generic [ref=e14]: EvidenceIQ
+            - generic [ref=e15]:
+                - heading "Welcome to EvidenceIQ" [level=1] [ref=e16]
+                - paragraph [ref=e17]: Select your industry to see how EvidenceIQ works for you
+            - generic [ref=e18]:
+                - combobox "Select your industry" [expanded] [ref=e19]:
+                    - generic [ref=e20]: Choose your industry…
+                    - img: ▼
+                - listbox [ref=e35]:
+                    - option "⚖️ Legal / Litigation" [active] [ref=e36]:
+                        - generic [ref=e37]: ⚖️ Legal / Litigation
+                    - option "💼 Finance / Audit" [ref=e38]:
+                        - generic [ref=e39]: 💼 Finance / Audit
+                    - option "🛡️ Insurance / Claims" [ref=e40]:
+                        - generic [ref=e41]: 🛡️ Insurance / Claims
+                - textbox [ref=e21]
+            - generic:
+                - link "Go to dashboard":
+                    - /url: /
+                    - text: Go to Dashboard →
+                - paragraph: Your claims dashboard is ready. You can return to this page any time from the header.
+    - button "Open Next.js Dev Tools" [ref=e27] [cursor=pointer]:
+        - img [ref=e28]
+    - alert [ref=e31]

@@ -6,7 +6,7 @@ import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Button, buttonVariants } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
-import { FileText, Plus, Shield } from 'lucide-react';
+import { Brain, FileText, Plus } from 'lucide-react';
 import { isAuthenticated, logout } from '@/lib/auth';
 
 type ClaimStatus = 'Draft' | 'In Review' | 'Complete';
@@ -101,10 +101,18 @@ export default function DashboardPage() {
       {/* Sticky top header */}
       <header className="sticky top-0 z-10 border-b bg-background">
         <div className="mx-auto flex max-w-2xl items-center justify-between px-4 py-3">
-          {/* Brand */}
-          <div className="flex items-center gap-2">
-            <Shield className="size-5 text-primary" aria-hidden="true" />
-            <span className="font-bold">ClaimsPack</span>
+          {/* Back to welcome + Brand */}
+          <div className="flex items-center gap-3">
+            <Link
+              href="/welcome"
+              className="text-sm text-muted-foreground hover:text-foreground transition-colors"
+            >
+              ← Back
+            </Link>
+            <div className="flex items-center gap-2">
+              <Brain className="size-5 text-primary" aria-hidden="true" />
+              <span className="font-bold">EvidenceIQ</span>
+            </div>
           </div>
 
           {/* Sign out */}

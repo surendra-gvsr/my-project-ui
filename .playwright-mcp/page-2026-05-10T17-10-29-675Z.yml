@@ -1,63 +1,63 @@
 - generic [active] [ref=e1]:
-  - button "Open Next.js Dev Tools" [ref=e29] [cursor=pointer]:
-    - img [ref=e30]
-  - alert [ref=e33]
-  - generic [ref=e35]:
-    - banner [ref=e36]:
-      - generic [ref=e37]:
-        - generic [ref=e38]:
-          - img [ref=e39]
-          - generic [ref=e41]: ClaimsPack
-        - button "Sign out" [ref=e42]: Sign Out
-    - main [ref=e43]:
-      - generic [ref=e44]:
-        - generic [ref=e45]:
-          - generic [ref=e47]:
-            - generic [ref=e48]: "3"
-            - generic [ref=e49]: Total Claims
-          - generic [ref=e51]:
-            - generic [ref=e52]: "2"
-            - generic [ref=e53]: In Review
-          - generic [ref=e55]:
-            - generic [ref=e56]: "1"
-            - generic [ref=e57]: Complete
-        - generic [ref=e58]:
-          - heading "Claims" [level=1] [ref=e59]
-          - link "New Claim" [ref=e60] [cursor=pointer]:
-            - /url: /claims/new
-            - img
-            - text: New Claim
-        - generic [ref=e61]:
-          - link "CLM-2024-001 In Review Oct 31, 2024 7 docs" [ref=e62] [cursor=pointer]:
-            - /url: /claims/CLM-2024-001
-            - generic [ref=e63]:
-              - generic [ref=e65]:
-                - generic [ref=e66]: CLM-2024-001
-                - generic [ref=e67]: In Review
-              - generic [ref=e69]:
-                - generic [ref=e70]: Oct 31, 2024
-                - generic [ref=e71]:
-                  - img [ref=e72]
-                  - text: 7 docs
-          - link "CLM-2024-002 In Review Nov 11, 2024 2 docs" [ref=e75] [cursor=pointer]:
-            - /url: /claims/CLM-2024-002
-            - generic [ref=e76]:
-              - generic [ref=e78]:
-                - generic [ref=e79]: CLM-2024-002
-                - generic [ref=e80]: In Review
-              - generic [ref=e82]:
-                - generic [ref=e83]: Nov 11, 2024
-                - generic [ref=e84]:
-                  - img [ref=e85]
-                  - text: 2 docs
-          - link "CLM-2024-003 Complete Oct 24, 2024 14 docs" [ref=e88] [cursor=pointer]:
-            - /url: /claims/CLM-2024-003
-            - generic [ref=e89]:
-              - generic [ref=e91]:
-                - generic [ref=e92]: CLM-2024-003
-                - generic [ref=e93]: Complete
-              - generic [ref=e95]:
-                - generic [ref=e96]: Oct 24, 2024
-                - generic [ref=e97]:
-                  - img [ref=e98]
-                  - text: 14 docs
+    - button "Open Next.js Dev Tools" [ref=e29] [cursor=pointer]:
+        - img [ref=e30]
+    - alert [ref=e33]
+    - generic [ref=e35]:
+        - banner [ref=e36]:
+            - generic [ref=e37]:
+                - generic [ref=e38]:
+                    - img [ref=e39]
+                    - generic [ref=e41]: ClaimsPack
+                - button "Sign out" [ref=e42]: Sign Out
+        - main [ref=e43]:
+            - generic [ref=e44]:
+                - generic [ref=e45]:
+                    - generic [ref=e47]:
+                        - generic [ref=e48]: '3'
+                        - generic [ref=e49]: Total Claims
+                    - generic [ref=e51]:
+                        - generic [ref=e52]: '2'
+                        - generic [ref=e53]: In Review
+                    - generic [ref=e55]:
+                        - generic [ref=e56]: '1'
+                        - generic [ref=e57]: Complete
+                - generic [ref=e58]:
+                    - heading "Claims" [level=1] [ref=e59]
+                    - link "New Claim" [ref=e60] [cursor=pointer]:
+                        - /url: /claims/new
+                        - img
+                        - text: New Claim
+                - generic [ref=e61]:
+                    - link "CLM-2024-001 In Review Oct 31, 2024 7 docs" [ref=e62] [cursor=pointer]:
+                        - /url: /claims/CLM-2024-001
+                        - generic [ref=e63]:
+                            - generic [ref=e65]:
+                                - generic [ref=e66]: CLM-2024-001
+                                - generic [ref=e67]: In Review
+                            - generic [ref=e69]:
+                                - generic [ref=e70]: Oct 31, 2024
+                                - generic [ref=e71]:
+                                    - img [ref=e72]
+                                    - text: 7 docs
+                    - link "CLM-2024-002 In Review Nov 11, 2024 2 docs" [ref=e75] [cursor=pointer]:
+                        - /url: /claims/CLM-2024-002
+                        - generic [ref=e76]:
+                            - generic [ref=e78]:
+                                - generic [ref=e79]: CLM-2024-002
+                                - generic [ref=e80]: In Review
+                            - generic [ref=e82]:
+                                - generic [ref=e83]: Nov 11, 2024
+                                - generic [ref=e84]:
+                                    - img [ref=e85]
+                                    - text: 2 docs
+                    - link "CLM-2024-003 Complete Oct 24, 2024 14 docs" [ref=e88] [cursor=pointer]:
+                        - /url: /claims/CLM-2024-003
+                        - generic [ref=e89]:
+                            - generic [ref=e91]:
+                                - generic [ref=e92]: CLM-2024-003
+                                - generic [ref=e93]: Complete
+                            - generic [ref=e95]:
+                                - generic [ref=e96]: Oct 24, 2024
+                                - generic [ref=e97]:
+                                    - img [ref=e98]
+                                    - text: 14 docs

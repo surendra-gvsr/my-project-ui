@@ -2,7 +2,7 @@
 
 import { Suspense, useState } from 'react';
 import { useRouter, useSearchParams } from 'next/navigation';
-import { Shield } from 'lucide-react';
+import { Brain } from 'lucide-react';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -28,11 +28,15 @@ function LoginForm() {
     setTimeout(() => {
       const ok = login(email, password);
       if (ok) {
-        // Only follow `next` if it is a safe relative path — prevents open redirect.
+        // Follow `next` only for real deep links (e.g. /claims/CLM-001).
+        // Root `/` is not a deep link — always send new logins through /welcome.
         const next = searchParams.get('next');
-        const safePath =
-          next?.startsWith('/') && !next.startsWith('//') ? next : '/';
-        router.push(safePath);
+        const isDeepLink =
+          next != null &&
+          next.startsWith('/') &&
+          !next.startsWith('//') &&
+          next !== '/';
+        router.push(isDeepLink ? next : '/welcome');
       } else {
         setError(true);
         setLoading(false);
@@ -51,7 +55,7 @@ function LoginForm() {
               id="email"
               type="email"
               autoComplete="email"
-              placeholder="adjuster@claimspace.com"
+              placeholder="adjuster@evidenceiq.com"
               value={email}
               onChange={(e) => setEmail(e.target.value)}
               aria-invalid={error}
@@ -86,7 +90,7 @@ function LoginForm() {
             type="submit"
             className="w-full"
             disabled={loading}
-            aria-label="Sign in to ClaimsPack"
+            aria-label="Sign in to EvidenceIQ"
           >
             {loading ? 'Signing in…' : 'Sign In'}
           </Button>
@@ -97,7 +101,7 @@ function LoginForm() {
           <p className="mb-0.5 font-semibold text-foreground">
             Demo credentials
           </p>
-          <p>adjuster@claimspace.com / demo1234</p>
+          <p>adjuster@evidenceiq.com / demo1234</p>
         </div>
       </CardContent>
     </Card>
@@ -111,12 +115,12 @@ export default function LoginPage() {
         {/* Brand mark */}
         <div className="flex flex-col items-center gap-3 text-center">
           <div className="flex size-14 items-center justify-center rounded-2xl bg-primary/10">
-            <Shield className="size-8 text-primary" aria-hidden="true" />
+            <Brain className="size-8 text-primary" aria-hidden="true" />
           </div>
           <div>
-            <h1 className="text-2xl font-bold tracking-tight">ClaimsPack</h1>
+            <h1 className="text-2xl font-bold tracking-tight">EvidenceIQ</h1>
             <p className="mt-1 text-sm text-muted-foreground">
-              Claims Evidence Management
+              AI-Powered Claims Evidence Management
             </p>
           </div>
         </div>

@@ -1,25 +1,25 @@
 - generic [active] [ref=e1]:
-  - button "Open Next.js Dev Tools" [ref=e29] [cursor=pointer]:
-    - img [ref=e30]
-  - alert [ref=e33]
-  - main [ref=e101]:
-    - generic [ref=e102]:
-      - generic [ref=e103]:
-        - img [ref=e105]
-        - generic [ref=e107]:
-          - heading "ClaimsPack" [level=1] [ref=e108]
-          - paragraph [ref=e109]: Claims Evidence Management
-      - generic [ref=e111]:
-        - generic [ref=e112]:
-          - generic [ref=e113]:
-            - generic [ref=e114]: Email address
-            - textbox "Email address" [ref=e115]:
-              - /placeholder: adjuster@claimspace.com
-          - generic [ref=e116]:
-            - generic [ref=e117]: Password
-            - textbox "Password" [ref=e118]:
-              - /placeholder: ••••••••
-          - button "Sign in to ClaimsPack" [ref=e119]: Sign In
-        - generic [ref=e120]:
-          - paragraph [ref=e121]: Demo credentials
-          - paragraph [ref=e122]: adjuster@claimspace.com / demo1234
+    - button "Open Next.js Dev Tools" [ref=e29] [cursor=pointer]:
+        - img [ref=e30]
+    - alert [ref=e33]
+    - main [ref=e101]:
+        - generic [ref=e102]:
+            - generic [ref=e103]:
+                - img [ref=e105]
+                - generic [ref=e107]:
+                    - heading "ClaimsPack" [level=1] [ref=e108]
+                    - paragraph [ref=e109]: Claims Evidence Management
+            - generic [ref=e111]:
+                - generic [ref=e112]:
+                    - generic [ref=e113]:
+                        - generic [ref=e114]: Email address
+                        - textbox "Email address" [ref=e115]:
+                            - /placeholder: adjuster@claimspace.com
+                    - generic [ref=e116]:
+                        - generic [ref=e117]: Password
+                        - textbox "Password" [ref=e118]:
+                            - /placeholder: ••••••••
+                    - button "Sign in to ClaimsPack" [ref=e119]: Sign In
+                - generic [ref=e120]:
+                    - paragraph [ref=e121]: Demo credentials
+                    - paragraph [ref=e122]: adjuster@claimspace.com / demo1234
