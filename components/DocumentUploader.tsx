@@ -4,6 +4,9 @@ import { useCallback, useRef, useState } from 'react';
 import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { FileText, FileType, Image, Upload, X } from 'lucide-react';
+import type { DocumentMetadata } from '@/lib/store';
+
+export type { DocumentMetadata };
 
 const ACCEPTED_TYPES = new Set([
   'application/pdf',
@@ -16,16 +19,6 @@ const ACCEPTED_TYPES = new Set([
 
 const ACCEPT_ATTR = '.pdf,.jpg,.jpeg,.png,.gif,.webp,.txt';
 const MAX_BYTES = 10 * 1024 * 1024;
-
-export interface DocumentMetadata {
-  id: string;
-  claimId: string;
-  name: string;
-  type: string;
-  size: number;
-  uploadedAt: string;
-  source: string;
-}
 
 interface QueuedFile {
   file: File;
@@ -131,7 +124,6 @@ export function DocumentUploader({
 
   return (
     <div className="space-y-3">
-      {/* Drop zone */}
       <Card
         className={`cursor-pointer border-2 border-dashed transition-colors ${
           dragging
@@ -169,7 +161,6 @@ export function DocumentUploader({
 
       {error && <p className="text-sm text-destructive">{error}</p>}
 
-      {/* Queued file list + upload button */}
       {queued.length > 0 && (
         <div className="space-y-2">
           {queued.map(({ file, uid }) => (

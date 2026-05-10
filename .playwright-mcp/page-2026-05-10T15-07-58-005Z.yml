@@ -37,7 +37,10 @@
                                 - /placeholder: e.g. CLM-2024-001
                             - button "Search" [disabled]
             - generic [ref=e43]:
-                - heading "Documents" [level=2] [ref=e44]
-                - paragraph [ref=e45]: Loading…
-    - button "Open Next.js Dev Tools" [ref=e51] [cursor=pointer]:
-        - img [ref=e52]
+                - heading "Documents" [level=2] [ref=e45]
+                - paragraph [ref=e46]: Loading…
+            - generic [ref=e47]:
+                - heading "Evidence Timeline" [level=2] [ref=e48]
+                - paragraph [ref=e51]: No timeline events yet — process documents above to extract dates and facts.
+    - button "Open Next.js Dev Tools" [ref=e57] [cursor=pointer]:
+        - img [ref=e58]

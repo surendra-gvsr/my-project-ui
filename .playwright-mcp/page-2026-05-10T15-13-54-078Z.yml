@@ -1,0 +1,79 @@
+- generic [active] [ref=e1]:
+    - main [ref=e2]:
+        - generic [ref=e3]:
+            - link "All Claims" [ref=e4] [cursor=pointer]:
+                - /url: /
+                - img [ref=e5]
+                - text: All Claims
+            - generic [ref=e7]:
+                - generic [ref=e10]:
+                    - generic [ref=e11]: CLM-2024-001
+                    - paragraph [ref=e12]: October 31, 2024
+                - generic [ref=e14]:
+                    - generic [ref=e15]: Settlement
+                    - generic [ref=e16]: Litigation
+                    - generic [ref=e17]: SIU
+                    - generic [ref=e18]: Audit
+            - generic [ref=e19]:
+                - heading "Upload Documents" [level=2] [ref=e20]
+                - button "Upload documents" [ref=e22] [cursor=pointer]:
+                    - generic [ref=e23]:
+                        - img [ref=e24]
+                        - paragraph [ref=e27]: Drop files here or click to browse
+                        - paragraph [ref=e28]: PDF · Images · .txt — max 10 MB each
+            - generic [ref=e29]:
+                - heading "Import from Email" [level=2] [ref=e30]
+                - generic [ref=e32]:
+                    - generic [ref=e33]:
+                        - img [ref=e34]
+                        - generic [ref=e37]:
+                            - paragraph [ref=e38]: Gmail not connected
+                            - paragraph [ref=e39]: Connect Gmail to pull emails by claim number or keyword.
+                        - button "Connect" [disabled]
+                    - generic [ref=e40]:
+                        - generic [ref=e41]: Search keyword
+                        - generic [ref=e42]:
+                            - textbox "Search keyword" [disabled]:
+                                - /placeholder: e.g. CLM-2024-001
+                            - button "Search" [disabled]
+            - generic [ref=e43]:
+                - generic [ref=e44]:
+                    - heading "Documents(2)" [level=2] [ref=e61]:
+                        - text: Documents
+                        - generic [ref=e62]: (2)
+                    - button "Processing…" [disabled]:
+                        - img
+                        - text: Processing…
+                - generic [ref=e64]:
+                    - generic [ref=e66]:
+                        - img [ref=e67]
+                        - generic [ref=e71]:
+                            - paragraph [ref=e72]: test-claim.txt
+                            - paragraph [ref=e73]: 255 B · May 10, 2026
+                        - generic [ref=e74]:
+                            - generic [ref=e75]: upload
+                            - generic [ref=e76]: Complete
+                    - generic [ref=e78]:
+                        - img [ref=e79]
+                        - generic [ref=e83]:
+                            - paragraph [ref=e84]: test-claim.txt
+                            - paragraph [ref=e85]: 255 B · May 10, 2026
+                        - generic [ref=e86]:
+                            - generic [ref=e87]: upload
+                            - generic [ref=e88]: Processing…
+            - generic [ref=e47]:
+                - heading "Evidence Timeline" [level=2] [ref=e48]
+                - generic [ref=e90]:
+                    - generic [ref=e95]:
+                        - generic [ref=e96]:
+                            - generic [ref=e97]: 2024-10-15
+                            - generic [ref=e98]: test-claim.txt
+                        - paragraph [ref=e99]: John Smith was involved in a vehicle accident
+                    - generic [ref=e103]:
+                        - generic [ref=e104]:
+                            - generic [ref=e105]: 2024-10-20
+                            - generic [ref=e106]: test-claim.txt
+                        - paragraph [ref=e107]: Dr. Emily Jones examined the patient
+    - button "Open Next.js Dev Tools" [ref=e57] [cursor=pointer]:
+        - img [ref=e58]
+    - alert [ref=e89]

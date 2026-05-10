@@ -37,7 +37,33 @@
                                 - /placeholder: e.g. CLM-2024-001
                             - button "Search" [disabled]
             - generic [ref=e43]:
-                - heading "Documents" [level=2] [ref=e44]
-                - paragraph [ref=e45]: Loading…
-    - button "Open Next.js Dev Tools" [ref=e51] [cursor=pointer]:
-        - img [ref=e52]
+                - generic [ref=e44]:
+                    - heading "Documents(2)" [level=2] [ref=e92]:
+                        - text: Documents
+                        - generic [ref=e76]: (2)
+                    - button "Process 2 docs" [ref=e93]:
+                        - img
+                        - text: Process 2 docs
+                - generic [ref=e78]:
+                    - generic [ref=e80]:
+                        - img [ref=e81]
+                        - generic [ref=e85]:
+                            - paragraph [ref=e86]: test-claim.txt
+                            - paragraph [ref=e87]: 255 B · May 10, 2026
+                        - generic [ref=e88]:
+                            - generic [ref=e89]: upload
+                            - generic [ref=e90]: Error
+                    - generic [ref=e95]:
+                        - img [ref=e96]
+                        - generic [ref=e100]:
+                            - paragraph [ref=e101]: test-claim.txt
+                            - paragraph [ref=e102]: 255 B · May 10, 2026
+                        - generic [ref=e103]:
+                            - generic [ref=e104]: upload
+                            - generic [ref=e105]: Error
+            - generic [ref=e47]:
+                - heading "Evidence Timeline" [level=2] [ref=e48]
+                - paragraph [ref=e51]: No timeline events yet — process documents above to extract dates and facts.
+    - button "Open Next.js Dev Tools" [ref=e57] [cursor=pointer]:
+        - img [ref=e58]
+    - alert [ref=e91]

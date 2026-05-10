@@ -1,0 +1,14 @@
+{
+  "permissions": {
+    "allow": [
+      "mcp__plugin_playwright_playwright__browser_click",
+      "mcp__plugin_playwright_playwright__browser_file_upload",
+      "mcp__plugin_playwright_playwright__browser_snapshot",
+      "mcp__plugin_playwright_playwright__browser_network_requests",
+      "mcp__plugin_playwright_playwright__browser_network_request",
+      "mcp__plugin_playwright_playwright__browser_navigate",
+      "mcp__plugin_context7_context7__resolve-library-id",
+      "mcp__plugin_context7_context7__query-docs"
+    ]
+  }
+}

@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
@@ -11,12 +11,20 @@ import {
   DocumentUploader,
   type DocumentMetadata,
 } from '@/components/DocumentUploader';
-import { ArrowLeft, FileText, FileType, Image, Mail } from 'lucide-react';
+import { EvidenceTimeline } from '@/components/EvidenceTimeline';
+import type { ProcessingResult, ProcessingStatus } from '@/lib/store';
+import {
+  ArrowLeft,
+  FileText,
+  FileType,
+  Image,
+  Mail,
+  Sparkles,
+} from 'lucide-react';
 
 type Purpose = 'Settlement' | 'Litigation' | 'SIU' | 'Audit';
 const PURPOSES: Purpose[] = ['Settlement', 'Litigation', 'SIU', 'Audit'];
 
-// Mock claim header — replace with API call in Phase 2
 function getMockClaim(id: string): {
   number: string;
   date: string;
@@ -56,6 +64,39 @@ function formatDate(iso: string) {
   });
 }
 
+const STATUS_STYLES: Record<
+  ProcessingStatus | 'pending',
+  { label: string; className: string }
+> = {
+  pending: {
+    label: 'Pending',
+    className: 'bg-muted text-muted-foreground',
+  },
+  processing: {
+    label: 'Processing…',
+    className:
+      'animate-pulse bg-amber-100 text-amber-700 dark:bg-amber-900/30 dark:text-amber-400',
+  },
+  complete: {
+    label: 'Complete',
+    className:
+      'bg-green-100 text-green-700 dark:bg-green-900/30 dark:text-green-400',
+  },
+  error: {
+    label: 'Error',
+    className: 'bg-red-100 text-red-700 dark:bg-red-900/30 dark:text-red-400',
+  },
+};
+
+function docStatus(
+  docId: string,
+  activeSet: Set<string>,
+  results: ProcessingResult[]
+): ProcessingStatus | 'pending' {
+  if (activeSet.has(docId)) return 'processing';
+  return results.find((r) => r.documentId === docId)?.status ?? 'pending';
+}
+
 export default function ClaimWorkspacePage() {
   const params = useParams<{ id: string }>();
   const claimId = params.id;
@@ -63,13 +104,30 @@ export default function ClaimWorkspacePage() {
 
   const [documents, setDocuments] = useState<DocumentMetadata[]>([]);
   const [loadingDocs, setLoadingDocs] = useState(true);
+  const [processingResults, setProcessingResults] = useState<
+    ProcessingResult[]
+  >([]);
+  const [activeSet, setActiveSet] = useState<Set<string>>(new Set());
   const [emailKeyword, setEmailKeyword] = useState('');
 
+  // Prevent double-firing in dev StrictMode
+  const fetched = useRef(false);
+
   useEffect(() => {
-    fetch(`/api/ingest?claimId=${encodeURIComponent(claimId)}`)
-      .then((r) => r.json())
-      .then((json: { success: boolean; data: DocumentMetadata[] }) => {
-        if (json.success) setDocuments(json.data);
+    if (fetched.current) return;
+    fetched.current = true;
+
+    Promise.all([
+      fetch(`/api/ingest?claimId=${encodeURIComponent(claimId)}`).then((r) =>
+        r.json()
+      ),
+      fetch(`/api/process?claimId=${encodeURIComponent(claimId)}`).then((r) =>
+        r.json()
+      ),
+    ])
+      .then(([docsJson, procJson]) => {
+        if (docsJson.success) setDocuments(docsJson.data);
+        if (procJson.success) setProcessingResults(procJson.data);
       })
       .catch(() => {})
       .finally(() => setLoadingDocs(false));
@@ -77,6 +135,68 @@ export default function ClaimWorkspacePage() {
 
   const onUploadComplete = (newDocs: DocumentMetadata[]) =>
     setDocuments((prev) => [...prev, ...newDocs]);
+
+  const handleProcessDocuments = async () => {
+    const unprocessed = documents.filter((doc) => {
+      const r = processingResults.find((p) => p.documentId === doc.id);
+      return !r || r.status === 'error';
+    });
+    if (!unprocessed.length) return;
+
+    for (const doc of unprocessed) {
+      setActiveSet((prev) => new Set([...prev, doc.id]));
+
+      try {
+        const res = await fetch('/api/process', {
+          method: 'POST',
+          headers: { 'Content-Type': 'application/json' },
+          body: JSON.stringify({ claimId, documentId: doc.id }),
+        });
+        const json: {
+          success: boolean;
+          data: ProcessingResult;
+          error: string | null;
+        } = await res.json();
+
+        const result: ProcessingResult = json.success
+          ? json.data
+          : {
+              documentId: doc.id,
+              claimId,
+              status: 'error',
+              error: json.error ?? 'Failed',
+            };
+
+        setProcessingResults((prev) => [
+          ...prev.filter((r) => r.documentId !== doc.id),
+          result,
+        ]);
+      } catch {
+        setProcessingResults((prev) => [
+          ...prev.filter((r) => r.documentId !== doc.id),
+          {
+            documentId: doc.id,
+            claimId,
+            status: 'error',
+            error: 'Network error',
+          },
+        ]);
+      } finally {
+        setActiveSet((prev) => {
+          const next = new Set(prev);
+          next.delete(doc.id);
+          return next;
+        });
+      }
+    }
+  };
+
+  const unprocessedCount = documents.filter((doc) => {
+    const r = processingResults.find((p) => p.documentId === doc.id);
+    return !r || r.status === 'error';
+  }).length;
+
+  const isProcessing = activeSet.size > 0;
 
   return (
     <main className="min-h-screen bg-background">
@@ -107,7 +227,6 @@ export default function ClaimWorkspacePage() {
             </div>
           </CardHeader>
           <CardContent>
-            {/* Purpose selector — controlled by API in Phase 2 */}
             <div className="flex flex-wrap gap-2">
               {PURPOSES.map((p) => (
                 <span
@@ -125,7 +244,7 @@ export default function ClaimWorkspacePage() {
           </CardContent>
         </Card>
 
-        {/* Document upload */}
+        {/* Upload */}
         <section className="space-y-3">
           <h2 className="text-base font-semibold">Upload Documents</h2>
           <DocumentUploader
@@ -156,7 +275,6 @@ export default function ClaimWorkspacePage() {
                   Connect
                 </Button>
               </div>
-
               <div className="space-y-1.5">
                 <Label htmlFor="email-keyword">Search keyword</Label>
                 <div className="flex gap-2">
@@ -177,16 +295,33 @@ export default function ClaimWorkspacePage() {
           </Card>
         </section>
 
-        {/* Document list */}
+        {/* Documents + process button */}
         <section className="space-y-3">
-          <h2 className="text-base font-semibold">
-            Documents
+          <div className="flex items-center justify-between gap-3">
+            <h2 className="text-base font-semibold">
+              Documents
+              {documents.length > 0 && (
+                <span className="ml-1.5 font-normal text-muted-foreground">
+                  ({documents.length})
+                </span>
+              )}
+            </h2>
             {documents.length > 0 && (
-              <span className="ml-1.5 font-normal text-muted-foreground">
-                ({documents.length})
-              </span>
+              <Button
+                size="sm"
+                variant="outline"
+                onClick={handleProcessDocuments}
+                disabled={isProcessing || unprocessedCount === 0}
+              >
+                <Sparkles className="size-3.5" />
+                {isProcessing
+                  ? 'Processing…'
+                  : unprocessedCount === 0
+                    ? 'All processed'
+                    : `Process ${unprocessedCount} doc${unprocessedCount !== 1 ? 's' : ''}`}
+              </Button>
             )}
-          </h2>
+          </div>
 
           {loadingDocs ? (
             <p className="text-sm text-muted-foreground">Loading…</p>
@@ -200,24 +335,46 @@ export default function ClaimWorkspacePage() {
             </Card>
           ) : (
             <div className="space-y-2">
-              {documents.map((doc) => (
-                <Card key={doc.id}>
-                  <CardContent className="flex items-center gap-3 py-3">
-                    <FileIcon type={doc.type} />
-                    <div className="min-w-0 flex-1">
-                      <p className="truncate text-sm font-medium">{doc.name}</p>
-                      <p className="text-xs text-muted-foreground">
-                        {formatBytes(doc.size)} · {formatDate(doc.uploadedAt)}
-                      </p>
-                    </div>
-                    <span className="shrink-0 rounded-full bg-muted px-2 py-0.5 text-xs capitalize text-muted-foreground">
-                      {doc.source}
-                    </span>
-                  </CardContent>
-                </Card>
-              ))}
+              {documents.map((doc) => {
+                const status = docStatus(doc.id, activeSet, processingResults);
+                const style = STATUS_STYLES[status];
+                return (
+                  <Card key={doc.id}>
+                    <CardContent className="flex items-center gap-3 py-3">
+                      <FileIcon type={doc.type} />
+                      <div className="min-w-0 flex-1">
+                        <p className="truncate text-sm font-medium">
+                          {doc.name}
+                        </p>
+                        <p className="text-xs text-muted-foreground">
+                          {formatBytes(doc.size)} · {formatDate(doc.uploadedAt)}
+                        </p>
+                      </div>
+                      <div className="flex shrink-0 gap-2">
+                        <span className="rounded-full bg-muted px-2 py-0.5 text-xs capitalize text-muted-foreground">
+                          {doc.source}
+                        </span>
+                        <span
+                          className={`rounded-full px-2 py-0.5 text-xs font-medium ${style.className}`}
+                        >
+                          {style.label}
+                        </span>
+                      </div>
+                    </CardContent>
+                  </Card>
+                );
+              })}
             </div>
           )}
+        </section>
+
+        {/* Evidence timeline */}
+        <section className="space-y-3">
+          <h2 className="text-base font-semibold">Evidence Timeline</h2>
+          <EvidenceTimeline
+            results={processingResults}
+            documents={documents.map((d) => ({ id: d.id, name: d.name }))}
+          />
         </section>
       </div>
     </main>

@@ -1,5 +1,6 @@
 import { NextRequest, NextResponse } from 'next/server';
 import { rateLimit } from '@/lib/rate-limit';
+import { documentDB, type DocumentMetadata } from '@/lib/store';
 
 const ALLOWED_TYPES = new Set([
   'application/pdf',
@@ -13,21 +14,9 @@ const ALLOWED_TYPES = new Set([
 const MAX_FILE_SIZE = 10 * 1024 * 1024; // 10 MB
 const CLAIM_ID_PATTERN = /^[a-zA-Z0-9_-]{1,64}$/;
 
-export interface DocumentMetadata {
-  id: string;
-  claimId: string;
-  name: string;
-  type: string;
-  size: number;
-  uploadedAt: string;
-  source: 'upload' | 'email';
-}
-
-// In-memory store — replace with a real database in Phase 2
-const documentStore = new Map<string, DocumentMetadata[]>();
-
 function getClientIp(request: NextRequest): string {
-  return request.headers.get('x-forwarded-for') ?? 'unknown';
+  const forwarded = request.headers.get('x-forwarded-for');
+  return forwarded ? forwarded.split(',')[0].trim() : 'unknown';
 }
 
 export async function POST(request: NextRequest) {
@@ -88,8 +77,11 @@ export async function POST(request: NextRequest) {
       );
     }
 
-    // Sanitize filename — strip anything that isn't alphanumeric, dot, hyphen, underscore, or space
+    // Sanitize filename
     const safeName = file.name.replace(/[^\w.\- ]/g, '_');
+
+    // Read text content at ingest time so the process route can pass it to Claude
+    const content = file.type === 'text/plain' ? await file.text() : undefined;
 
     const doc: DocumentMetadata = {
       id: `doc_${Date.now()}_${Math.random().toString(36).slice(2, 8)}`,
@@ -99,10 +91,10 @@ export async function POST(request: NextRequest) {
       size: file.size,
       uploadedAt: new Date().toISOString(),
       source: 'upload',
+      ...(content !== undefined && { content }),
     };
 
-    const existing = documentStore.get(claimId) ?? [];
-    documentStore.set(claimId, [...existing, doc]);
+    documentDB.add(doc);
     results.push(doc);
   }
 
@@ -132,6 +124,6 @@ export async function GET(request: NextRequest) {
     );
   }
 
-  const docs = documentStore.get(claimId) ?? [];
+  const docs = documentDB.getByClaim(claimId);
   return NextResponse.json({ success: true, data: docs, error: null });
 }

@@ -1,4 +1,4 @@
-- generic [active] [ref=e1]:
+- generic [ref=e1]:
     - main [ref=e2]:
         - generic [ref=e3]:
             - link "All Claims" [ref=e4] [cursor=pointer]:
@@ -16,11 +16,21 @@
                     - generic [ref=e18]: Audit
             - generic [ref=e19]:
                 - heading "Upload Documents" [level=2] [ref=e20]
-                - button "Upload documents" [ref=e22] [cursor=pointer]:
-                    - generic [ref=e23]:
-                        - img [ref=e24]
-                        - paragraph [ref=e27]: Drop files here or click to browse
-                        - paragraph [ref=e28]: PDF · Images · .txt — max 10 MB each
+                - generic [ref=e21]:
+                    - button "Upload documents" [active] [ref=e22] [cursor=pointer]:
+                        - generic [ref=e23]:
+                            - img [ref=e24]
+                            - paragraph [ref=e27]: Drop files here or click to browse
+                            - paragraph [ref=e28]: PDF · Images · .txt — max 10 MB each
+                    - generic [ref=e61]:
+                        - generic [ref=e62]:
+                            - img [ref=e63]
+                            - generic [ref=e67]:
+                                - paragraph [ref=e68]: test-claim.txt
+                                - paragraph [ref=e69]: 255 B
+                            - button "Remove test-claim.txt" [ref=e70]:
+                                - img [ref=e71]
+                        - button "Upload 1 file" [ref=e74]
             - generic [ref=e29]:
                 - heading "Import from Email" [level=2] [ref=e30]
                 - generic [ref=e32]:
@@ -37,7 +47,11 @@
                                 - /placeholder: e.g. CLM-2024-001
                             - button "Search" [disabled]
             - generic [ref=e43]:
-                - heading "Documents" [level=2] [ref=e44]
-                - paragraph [ref=e45]: Loading…
-    - button "Open Next.js Dev Tools" [ref=e51] [cursor=pointer]:
-        - img [ref=e52]
+                - heading "Documents" [level=2] [ref=e45]
+                - paragraph [ref=e77]: No documents yet — upload files above to get started.
+            - generic [ref=e47]:
+                - heading "Evidence Timeline" [level=2] [ref=e48]
+                - paragraph [ref=e51]: No timeline events yet — process documents above to extract dates and facts.
+    - button "Open Next.js Dev Tools" [ref=e57] [cursor=pointer]:
+        - img [ref=e58]
+    - alert [ref=e78]

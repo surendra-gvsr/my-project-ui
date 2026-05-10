@@ -1,0 +1,70 @@
+- generic [ref=e1]:
+    - main [ref=e2]:
+        - generic [ref=e3]:
+            - link "All Claims" [ref=e4] [cursor=pointer]:
+                - /url: /
+                - img [ref=e5]
+                - text: All Claims
+            - generic [ref=e7]:
+                - generic [ref=e10]:
+                    - generic [ref=e11]: CLM-2024-001
+                    - paragraph [ref=e12]: October 31, 2024
+                - generic [ref=e14]:
+                    - generic [ref=e15]: Settlement
+                    - generic [ref=e16]: Litigation
+                    - generic [ref=e17]: SIU
+                    - generic [ref=e18]: Audit
+            - generic [ref=e19]:
+                - heading "Upload Documents" [level=2] [ref=e20]
+                - generic [ref=e21]:
+                    - button "Upload documents" [active] [ref=e22] [cursor=pointer]:
+                        - generic [ref=e23]:
+                            - img [ref=e24]
+                            - paragraph [ref=e27]: Drop files here or click to browse
+                            - paragraph [ref=e28]: PDF · Images · .txt — max 10 MB each
+                    - generic [ref=e61]:
+                        - generic [ref=e62]:
+                            - img [ref=e63]
+                            - generic [ref=e67]:
+                                - paragraph [ref=e68]: test-claim.txt
+                                - paragraph [ref=e69]: 255 B
+                            - button "Remove test-claim.txt" [ref=e70]:
+                                - img [ref=e71]
+                        - button "Upload 1 file" [ref=e74]
+            - generic [ref=e29]:
+                - heading "Import from Email" [level=2] [ref=e30]
+                - generic [ref=e32]:
+                    - generic [ref=e33]:
+                        - img [ref=e34]
+                        - generic [ref=e37]:
+                            - paragraph [ref=e38]: Gmail not connected
+                            - paragraph [ref=e39]: Connect Gmail to pull emails by claim number or keyword.
+                        - button "Connect" [disabled]
+                    - generic [ref=e40]:
+                        - generic [ref=e41]: Search keyword
+                        - generic [ref=e42]:
+                            - textbox "Search keyword" [disabled]:
+                                - /placeholder: e.g. CLM-2024-001
+                            - button "Search" [disabled]
+            - generic [ref=e43]:
+                - generic [ref=e44]:
+                    - heading "Documents(1)" [level=2] [ref=e75]:
+                        - text: Documents
+                        - generic [ref=e76]: (1)
+                    - button "Process 1 doc" [ref=e77]:
+                        - img
+                        - text: Process 1 doc
+                - generic [ref=e80]:
+                    - img [ref=e81]
+                    - generic [ref=e85]:
+                        - paragraph [ref=e86]: test-claim.txt
+                        - paragraph [ref=e87]: 255 B · May 10, 2026
+                    - generic [ref=e88]:
+                        - generic [ref=e89]: upload
+                        - generic [ref=e90]: Pending
+            - generic [ref=e47]:
+                - heading "Evidence Timeline" [level=2] [ref=e48]
+                - paragraph [ref=e51]: No timeline events yet — process documents above to extract dates and facts.
+    - button "Open Next.js Dev Tools" [ref=e57] [cursor=pointer]:
+        - img [ref=e58]
+    - alert [ref=e91]
