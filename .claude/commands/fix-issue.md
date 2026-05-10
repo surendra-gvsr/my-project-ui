@@ -3,6 +3,7 @@
 Fix a GitHub issue by number.
 
 ## Usage
+
 ```
 /fix-issue <issue-number>
 ```
@@ -10,6 +11,7 @@ Fix a GitHub issue by number.
 ## Steps
 
 1. **Fetch issue details**
+
    ```bash
    gh issue view $ARGUMENTS --json number,title,body,labels,comments,assignees
    ```
@@ -25,6 +27,7 @@ Fix a GitHub issue by number.
 6. **Implement the fix** — make the test pass with minimal changes; do not refactor unrelated code
 
 7. **Run verification**
+
    ```bash
    npm test
    npm run typecheck
@@ -36,6 +39,7 @@ Fix a GitHub issue by number.
    ```
 
 ## Rules
+
 - Never touch `/src/auth/**`, `/src/payments/**`, or `.env.*` without explicit approval
 - If the issue is ambiguous, ask one clarifying question before starting
 - If tests don't exist for the affected area, add them
