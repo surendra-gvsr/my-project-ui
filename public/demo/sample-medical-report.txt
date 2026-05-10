@@ -1,0 +1,120 @@
+SPRINGFIELD REGIONAL MEDICAL CENTER
+Department of Orthopedics and Sports Medicine
+2200 West State Street, Springfield, IL 62704
+Tel: (217) 555-7800  |  Fax: (217) 555-7899
+
+====================================================
+MEDICAL REPORT — INJURY EVALUATION AND TREATMENT SUMMARY
+====================================================
+
+PATIENT       : Marcus Webb
+DATE OF BIRTH : June 22, 1981
+MRN           : SRM-2024-44019
+TREATING MD   : Dr. Patricia Huang, MD — Orthopedics, Fellowship-Trained Spine
+DATE OF REPORT: April 25, 2024
+
+----------------------------------------------------
+HISTORY OF PRESENT ILLNESS
+----------------------------------------------------
+Mr. Marcus Webb, a 42-year-old male, presented to the Springfield Regional Medical
+Center Emergency Department on March 14, 2024, following a motor vehicle accident
+earlier that afternoon. Patient reported being stopped at a red light at the
+intersection of Oak Ridge Blvd and 5th Ave, Springfield, when his vehicle was struck
+from behind by another vehicle. He denies loss of consciousness. He reports immediate
+onset of cervical and lumbar pain, with associated muscle spasm and limited range
+of motion noted at initial evaluation.
+
+Patient has no prior history of cervical or lumbar injury. He is employed full-time
+as a logistics coordinator and reports that symptoms have interfered with his ability
+to perform sustained sitting and lifting required for his occupation.
+
+----------------------------------------------------
+VISIT CHRONOLOGY
+----------------------------------------------------
+03/14/2024 — Emergency Department, Springfield Regional
+  Presenting complaint: Neck pain, lower back pain, muscle stiffness post-MVA.
+  Vitals stable. Neurological examination unremarkable. No signs of fracture on
+  cervical X-ray (AP and lateral views). Diagnosed with acute cervical strain and
+  lumbar contusion. Discharged with prescription for cyclobenzaprine 5 mg TID and
+  ibuprofen 600 mg Q8H. Patient advised to follow up with orthopedics within one week.
+  ER Bill: $2,100.00
+
+03/21/2024 — Orthopedic Consultation, Dr. P. Huang
+  Patient presents with persistent neck pain (7/10), restricted cervical rotation
+  (approximately 40% of normal range bilaterally), and lumbar tenderness at L3-L5.
+  Paraspinal muscle spasm noted on palpation. MRI of cervical spine ordered.
+  Referral to physical therapy — 3 sessions/week for 6 weeks. Medication regimen
+  continued. Specialist consultation fee: $450.00
+
+04/04/2024 — MRI and Follow-up, Dr. P. Huang
+  MRI cervical spine (with and without contrast) completed. Findings: Mild disc bulge
+  at C5-C6 with no significant neural foraminal narrowing. No evidence of cord
+  compression. No acute fracture or instability.
+  Assessment: Findings consistent with traumatic soft tissue injury and early
+  degenerative response to acute hyperflexion-hyperextension mechanism.
+  MRI cost: $1,200.00
+
+04/18/2024 — Progress Evaluation, Dr. P. Huang
+  Patient reports improvement — pain now 4/10 at rest, 6/10 with exertion. Cervical
+  rotation improved to approximately 65% of normal. Lumbar symptoms resolving.
+  Physical therapy progress satisfactory. Patient to complete remaining PT sessions.
+
+----------------------------------------------------
+DIAGNOSES
+----------------------------------------------------
+1. Cervical strain, C4-C6 (ICD-10: S13.4XXA)
+2. Lumbar contusion, soft tissue injury (ICD-10: S39.012A)
+3. Mild disc bulge C5-C6, traumatically aggravated (ICD-10: M50.12)
+
+----------------------------------------------------
+IMAGING SUMMARY
+----------------------------------------------------
+03/14/2024 — Cervical X-ray (AP + Lateral): No acute fracture. Mild straightening
+             of cervical lordosis, consistent with muscle guarding.
+04/04/2024 — MRI Cervical Spine: Mild disc bulge C5-C6. No cord compression.
+             No instability.
+
+----------------------------------------------------
+TREATMENT PLAN
+----------------------------------------------------
+- Physical therapy: 3 sessions/week x 6 weeks (18 sessions total, estimated $100/session)
+  PT cost estimate: $1,800.00
+- Medications: Cyclobenzaprine 5 mg TID (tapering), ibuprofen 600 mg Q8H as needed
+- Activity modification: Avoid prolonged sitting >30 minutes without postural break
+- Re-evaluation at completion of PT course
+
+----------------------------------------------------
+COST SUMMARY TO DATE
+----------------------------------------------------
+ER visit (03/14/2024)                  : $2,100.00
+Specialist consultation (03/21/2024)   : $450.00
+MRI — cervical spine (04/04/2024)      : $1,200.00
+Physical therapy (estimated, 18 sess.) : $1,800.00
+----------------------------------------------------
+TOTAL MEDICAL TO DATE                  : $5,550.00
+----------------------------------------------------
+Additional costs pending: Medications, follow-up visits, potential further imaging
+
+----------------------------------------------------
+CAUSATION OPINION
+----------------------------------------------------
+It is my professional medical opinion, to a reasonable degree of medical certainty,
+that the cervical strain, lumbar contusion, and identified disc bulge at C5-C6 are
+causally related to the motor vehicle accident of March 14, 2024. The acute
+hyperflexion-hyperextension mechanism consistent with a rear-end collision is a
+well-documented etiology for the injuries presented. There is no prior medical history
+that would independently account for the acute onset of symptoms following this event.
+
+----------------------------------------------------
+PROGNOSIS
+----------------------------------------------------
+With completion of the current physical therapy protocol and continued compliance with
+the prescribed treatment regimen, full functional recovery is expected within 8 to 12
+weeks from date of initial injury. Long-term residual symptoms are not anticipated
+based on current clinical trajectory.
+
+Electronically signed,
+Dr. Patricia Huang, MD
+Board Certified — Orthopedic Surgery
+Springfield Regional Medical Center
+Report generated: April 25, 2024

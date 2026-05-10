@@ -58,24 +58,6 @@ Demo credentials:
 - Email: adjuster@evidenceiq.com
 - Password: demo1234
 
-## Screenshots
-
-### Dashboard
-
-![Dashboard](screenshots/dashboard.png)
-
-### Claim Workspace
-
-![Workspace](screenshots/workspace.png)
-
-### Evidence Timeline
-
-![Timeline](screenshots/timeline.png)
-
-### PDF Export
-
-![PDF](screenshots/pdf.png)
-
 ## Getting Started
 
 ```bash
@@ -86,6 +68,16 @@ cp .env.example .env
 # Add your Anthropic API key to .env
 npm run dev
 ```
+
+## Demo Files
+
+Sample files are available to test the AI processing pipeline:
+
+- [`/demo/sample-claim-notes.txt`](/demo/sample-claim-notes.txt) — Adjuster notes for a vehicle accident claim
+- [`/demo/sample-medical-report.txt`](/demo/sample-medical-report.txt) — Medical report with diagnosis, treatment, and costs
+- [`/demo/sample-witness-statement.txt`](/demo/sample-witness-statement.txt) — Witness statement with timeline and observations
+
+Upload any of these to a claim workspace to see EvidenceIQ extract facts, dates, people, and amounts automatically.
 
 ## Architecture
 

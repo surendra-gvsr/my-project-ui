@@ -1,0 +1,103 @@
+CLAIM ADJUSTER NOTES
+====================================================
+Claim Number    : CLM-2024-7891
+Date Opened     : March 14, 2024
+Line of Business: Personal Auto — Bodily Injury / Property Damage
+Adjuster        : T. Morales, ext. 4412
+====================================================
+
+DATE OF LOSS: March 14, 2024
+TIME OF LOSS: Approximately 2:45 PM
+LOCATION    : Intersection of Oak Ridge Blvd and 5th Ave, Springfield
+TYPE        : Rear-end collision
+
+----------------------------------------------------
+CLAIMANT INFORMATION
+----------------------------------------------------
+Name       : Marcus Webb
+DOB        : June 22, 1981
+Policy No. : AUT-559-3821
+Phone      : (217) 555-0193
+Address    : 412 Elmwood Court, Springfield, IL 62704
+
+----------------------------------------------------
+AT-FAULT PARTY
+----------------------------------------------------
+Name           : Sandra Reyes
+Insurer        : Meridian Auto Insurance
+Policy No.     : MER-2024-441892 (unconfirmed)
+Contact        : Pending — Meridian adjuster assigned
+
+----------------------------------------------------
+VEHICLE
+----------------------------------------------------
+Year/Make/Model : 2021 Honda Civic LX
+Color           : White
+VIN             : 2HGFE2F52MH104827
+Damage          : Rear bumper crushed, trunk lid deformed, rear tail lights destroyed
+Drivable        : No — towed from scene
+Repair Estimate : $6,840 (Oak Ridge Auto Body, 03/22/2024)
+
+----------------------------------------------------
+INCIDENT SUMMARY — FIRST INTERVIEW (03/15/2024, 09:22 AM)
+Interviewer: T. Morales
+----------------------------------------------------
+Claimant states he was stopped at red light at Oak Ridge and 5th when struck from behind
+without warning. He was the third car in queue at the signal. He did not see the
+at-fault vehicle prior to impact. After impact, claimant states he felt immediate pain
+in neck and lower back. Emergency services arrived within approximately 8 minutes.
+Claimant transported by ambulance to Springfield Regional Medical Center ER.
+
+NOTE — TM: Claimant stated he was the "second or third" car in line.
+
+----------------------------------------------------
+INCIDENT SUMMARY — SECOND INTERVIEW (03/21/2024, 02:15 PM)
+Interviewer: T. Morales
+----------------------------------------------------
+During follow-up, claimant revised his account: now states he was the FIRST car stopped
+at the light, not second or third as stated on 03/15. This inconsistency has been flagged
+for SIU review. Claimant's attorney (Brennan & Cole LLP) present for second interview.
+No further direct statements expected.
+
+INCONSISTENCY NOTE — TM 03/21: Position in queue changed between interviews. Will
+cross-reference with police report and witness statements. Two named witnesses on scene.
+
+----------------------------------------------------
+WITNESSES
+----------------------------------------------------
+1. David Okafor, 34, Springfield — was at crosswalk at time of impact. Statement taken
+   03/19/2024. Corroborates rear-end collision. Confirms light was red for at-fault vehicle.
+2. Priya Anand, 29, Springfield — driver in adjacent lane. Verbal statement taken at
+   scene by SPD. Written statement pending.
+
+----------------------------------------------------
+MEDICAL
+----------------------------------------------------
+03/14/2024 : ER visit — Springfield Regional Medical Center. Cervical strain, lumbar
+             contusion noted. Discharged same day. ER bill: $2,100.
+03/21/2024 : Follow-up — Dr. Patricia Huang, MD (Orthopedics). Referred for MRI and PT.
+             Specialist consultation: $450.
+04/04/2024 : MRI — mild disc bulge C5-C6. Physical therapy ordered 3x/week x 6 weeks.
+Ongoing    : Physical therapy sessions — $1,800 estimated. Specialist follow-up pending.
+
+----------------------------------------------------
+KEY DATES
+----------------------------------------------------
+03/14/2024 : Date of loss
+03/14/2024 : Police report filed — SPD Case No. 24-03-8842
+03/15/2024 : First adjuster contact with claimant
+03/19/2024 : Witness statement (Okafor)
+03/22/2024 : Vehicle inspection / repair estimate ($6,840)
+04/10/2024 : Demand letter received from Brennan & Cole LLP — demand: $85,000
+
+----------------------------------------------------
+OPEN ITEMS
+----------------------------------------------------
+- Obtain signed medical authorization
+- Request MRI report from Springfield Regional
+- Confirm Meridian Auto policy details for Sandra Reyes
+- Written statement from Priya Anand (witness #2) — pending
+- SIU referral for position-in-queue inconsistency — IN PROGRESS
+- Evaluate demand vs. documented specials ($5,550 to date)
+
+— TM, 04/12/2024
