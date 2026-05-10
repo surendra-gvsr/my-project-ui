@@ -3,7 +3,7 @@
 import { useEffect, useRef, useState } from 'react';
 import { useParams } from 'next/navigation';
 import Link from 'next/link';
-import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
+import { Card, CardContent } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
 import { Input } from '@/components/ui/input';
 import { Label } from '@/components/ui/label';
@@ -26,7 +26,6 @@ import {
 } from 'lucide-react';
 
 type Purpose = 'Settlement' | 'Litigation' | 'SIU' | 'Audit';
-const PURPOSES: Purpose[] = ['Settlement', 'Litigation', 'SIU', 'Audit'];
 
 function getMockClaim(id: string): {
   number: string;
@@ -230,73 +229,56 @@ export default function ClaimWorkspacePage() {
     }
   };
 
+  // Derive a purpose-based status label for the sticky bar pill
+  const purposeLabel = claim.purpose;
+
   return (
-    <main className="min-h-screen bg-background">
+    <main className="min-h-screen bg-gray-50">
+      {/* Sticky action bar — replaces the old claim header Card */}
+      <div className="sticky top-0 z-10 border-b bg-background px-4 py-3">
+        <div className="mx-auto flex max-w-2xl items-center justify-between gap-3">
+          {/* Left: back nav + claim identity */}
+          <div className="flex min-w-0 flex-col gap-0.5">
+            <Link
+              href="/"
+              className="inline-flex items-center gap-1.5 rounded text-sm text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
+            >
+              <ArrowLeft className="size-4" />
+              All Claims
+            </Link>
+            <div className="flex items-center gap-2">
+              <span className="font-semibold">{claim.number}</span>
+              {/* Purpose badge pill */}
+              <span className="rounded-full bg-primary/10 px-2.5 py-0.5 text-xs font-medium text-primary">
+                {purposeLabel}
+              </span>
+            </div>
+          </div>
+
+          {/* Right: Export button */}
+          <Button
+            variant="default"
+            size="sm"
+            onClick={handleExport}
+            disabled={isExportDisabled}
+            aria-label="Export evidence pack as PDF"
+          >
+            {isExporting ? (
+              <>
+                <Loader2 className="size-3.5 animate-spin" />
+                Generating PDF…
+              </>
+            ) : (
+              <>
+                <Download className="size-3.5" />
+                Export Evidence Pack
+              </>
+            )}
+          </Button>
+        </div>
+      </div>
+
       <div className="mx-auto max-w-2xl space-y-6 px-4 py-8">
-        {/* Back nav */}
-        <Link
-          href="/"
-          className="inline-flex items-center gap-1.5 rounded text-sm text-muted-foreground hover:text-foreground focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring"
-        >
-          <ArrowLeft className="size-4" />
-          All Claims
-        </Link>
-
-        {/* Claim header */}
-        <Card>
-          <CardHeader>
-            <div className="flex flex-wrap items-start justify-between gap-3">
-              <div>
-                <CardTitle className="text-xl">{claim.number}</CardTitle>
-                <p className="mt-1 text-sm text-muted-foreground">
-                  {new Date(claim.date).toLocaleDateString('en-US', {
-                    month: 'long',
-                    day: 'numeric',
-                    year: 'numeric',
-                  })}
-                </p>
-              </div>
-            </div>
-          </CardHeader>
-          <CardContent className="space-y-4">
-            <div className="flex flex-wrap gap-2">
-              {PURPOSES.map((p) => (
-                <span
-                  key={p}
-                  className={`rounded-full border px-3 py-1 text-xs font-medium transition-colors ${
-                    p === claim.purpose
-                      ? 'border-primary bg-primary text-primary-foreground'
-                      : 'border-border text-muted-foreground'
-                  }`}
-                >
-                  {p}
-                </span>
-              ))}
-            </div>
-            <div className="flex justify-end">
-              <Button
-                variant="default"
-                size="sm"
-                onClick={handleExport}
-                disabled={isExportDisabled}
-                aria-label="Export evidence pack as PDF"
-              >
-                {isExporting ? (
-                  <>
-                    <Loader2 className="size-3.5 animate-spin" />
-                    Generating PDF…
-                  </>
-                ) : (
-                  <>
-                    <Download className="size-3.5" />
-                    Export Evidence Pack
-                  </>
-                )}
-              </Button>
-            </div>
-          </CardContent>
-        </Card>
-
         {/* Upload */}
         <section className="space-y-3">
           <h2 className="text-base font-semibold">Upload Documents</h2>
@@ -304,48 +286,6 @@ export default function ClaimWorkspacePage() {
             claimId={claimId}
             onUploadComplete={onUploadComplete}
           />
-        </section>
-
-        {/* Email import */}
-        <section className="space-y-3">
-          <h2 className="text-base font-semibold">Import from Email</h2>
-          <Card>
-            <CardContent className="space-y-4 pt-4">
-              <div className="flex items-center gap-3 rounded-lg border border-dashed p-4">
-                <Mail className="size-6 shrink-0 text-muted-foreground" />
-                <div className="min-w-0 flex-1">
-                  <p className="text-sm font-medium">Gmail not connected</p>
-                  <p className="text-xs text-muted-foreground">
-                    Connect Gmail to pull emails by claim number or keyword.
-                  </p>
-                </div>
-                <Button
-                  variant="outline"
-                  size="sm"
-                  className="shrink-0"
-                  disabled
-                >
-                  Connect
-                </Button>
-              </div>
-              <div className="space-y-1.5">
-                <Label htmlFor="email-keyword">Search keyword</Label>
-                <div className="flex gap-2">
-                  <Input
-                    id="email-keyword"
-                    placeholder={`e.g. ${claimId}`}
-                    value={emailKeyword}
-                    onChange={(e) => setEmailKeyword(e.target.value)}
-                    disabled
-                    className="flex-1"
-                  />
-                  <Button variant="outline" disabled>
-                    Search
-                  </Button>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
         </section>
 
         {/* Documents + process button */}
@@ -428,6 +368,51 @@ export default function ClaimWorkspacePage() {
             results={processingResults}
             documents={documents.map((d) => ({ id: d.id, name: d.name }))}
           />
+        </section>
+
+        {/* Visual separator before Gmail import */}
+        <hr className="border-border" />
+
+        {/* Gmail import — reduced visual weight, moved to bottom */}
+        <section className="space-y-3">
+          <h2 className="text-sm text-muted-foreground">Import from Email</h2>
+          <Card>
+            <CardContent className="space-y-4 pt-4">
+              <div className="flex items-center gap-3 rounded-lg border border-dashed p-4">
+                <Mail className="size-6 shrink-0 text-muted-foreground" />
+                <div className="min-w-0 flex-1">
+                  <p className="text-sm font-medium">Gmail not connected</p>
+                  <p className="text-xs text-muted-foreground">
+                    Connect Gmail to pull emails by claim number or keyword.
+                  </p>
+                </div>
+                <Button
+                  variant="outline"
+                  size="sm"
+                  className="shrink-0"
+                  disabled
+                >
+                  Connect
+                </Button>
+              </div>
+              <div className="space-y-1.5">
+                <Label htmlFor="email-keyword">Search keyword</Label>
+                <div className="flex gap-2">
+                  <Input
+                    id="email-keyword"
+                    placeholder={`e.g. ${claimId}`}
+                    value={emailKeyword}
+                    onChange={(e) => setEmailKeyword(e.target.value)}
+                    disabled
+                    className="flex-1"
+                  />
+                  <Button variant="outline" disabled>
+                    Search
+                  </Button>
+                </div>
+              </div>
+            </CardContent>
+          </Card>
         </section>
       </div>
     </main>

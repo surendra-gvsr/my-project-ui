@@ -1,51 +1,51 @@
 - generic [active] [ref=e1]:
-  - main [ref=e2]:
-    - generic [ref=e3]:
-      - link "All Claims" [ref=e4] [cursor=pointer]:
-        - /url: /
-        - img [ref=e5]
-        - text: All Claims
-      - generic [ref=e7]:
-        - generic [ref=e10]:
-          - generic [ref=e11]: CLM-2024-001
-          - paragraph [ref=e12]: October 31, 2024
-        - generic [ref=e13]:
-          - generic [ref=e14]:
-            - generic [ref=e15]: Settlement
-            - generic [ref=e16]: Litigation
-            - generic [ref=e17]: SIU
-            - generic [ref=e18]: Audit
-          - generic [ref=e19]:
-            - button "Export evidence pack as PDF" [disabled]:
-              - img
-              - text: Export Evidence Pack
-      - generic [ref=e20]:
-        - heading "Upload Documents" [level=2] [ref=e21]
-        - button "Upload documents" [ref=e23] [cursor=pointer]:
-          - generic [ref=e24]:
-            - img [ref=e25]
-            - paragraph [ref=e28]: Drop files here or click to browse
-            - paragraph [ref=e29]: PDF · Images · .txt — max 10 MB each
-      - generic [ref=e30]:
-        - heading "Import from Email" [level=2] [ref=e31]
-        - generic [ref=e33]:
-          - generic [ref=e34]:
-            - img [ref=e35]
-            - generic [ref=e38]:
-              - paragraph [ref=e39]: Gmail not connected
-              - paragraph [ref=e40]: Connect Gmail to pull emails by claim number or keyword.
-            - button "Connect" [disabled]
-          - generic [ref=e41]:
-            - generic [ref=e42]: Search keyword
-            - generic [ref=e43]:
-              - textbox "Search keyword" [disabled]:
-                - /placeholder: e.g. CLM-2024-001
-              - button "Search" [disabled]
-      - generic [ref=e44]:
-        - heading "Documents" [level=2] [ref=e46]
-        - paragraph [ref=e47]: Loading…
-      - generic [ref=e48]:
-        - heading "Evidence Timeline" [level=2] [ref=e49]
-        - paragraph [ref=e52]: No timeline events yet — process documents above to extract dates and facts.
-  - button "Open Next.js Dev Tools" [ref=e58] [cursor=pointer]:
-    - img [ref=e59]
+    - main [ref=e2]:
+        - generic [ref=e3]:
+            - link "All Claims" [ref=e4] [cursor=pointer]:
+                - /url: /
+                - img [ref=e5]
+                - text: All Claims
+            - generic [ref=e7]:
+                - generic [ref=e10]:
+                    - generic [ref=e11]: CLM-2024-001
+                    - paragraph [ref=e12]: October 31, 2024
+                - generic [ref=e13]:
+                    - generic [ref=e14]:
+                        - generic [ref=e15]: Settlement
+                        - generic [ref=e16]: Litigation
+                        - generic [ref=e17]: SIU
+                        - generic [ref=e18]: Audit
+                    - generic [ref=e19]:
+                        - button "Export evidence pack as PDF" [disabled]:
+                            - img
+                            - text: Export Evidence Pack
+            - generic [ref=e20]:
+                - heading "Upload Documents" [level=2] [ref=e21]
+                - button "Upload documents" [ref=e23] [cursor=pointer]:
+                    - generic [ref=e24]:
+                        - img [ref=e25]
+                        - paragraph [ref=e28]: Drop files here or click to browse
+                        - paragraph [ref=e29]: PDF · Images · .txt — max 10 MB each
+            - generic [ref=e30]:
+                - heading "Import from Email" [level=2] [ref=e31]
+                - generic [ref=e33]:
+                    - generic [ref=e34]:
+                        - img [ref=e35]
+                        - generic [ref=e38]:
+                            - paragraph [ref=e39]: Gmail not connected
+                            - paragraph [ref=e40]: Connect Gmail to pull emails by claim number or keyword.
+                        - button "Connect" [disabled]
+                    - generic [ref=e41]:
+                        - generic [ref=e42]: Search keyword
+                        - generic [ref=e43]:
+                            - textbox "Search keyword" [disabled]:
+                                - /placeholder: e.g. CLM-2024-001
+                            - button "Search" [disabled]
+            - generic [ref=e44]:
+                - heading "Documents" [level=2] [ref=e46]
+                - paragraph [ref=e47]: Loading…
+            - generic [ref=e48]:
+                - heading "Evidence Timeline" [level=2] [ref=e49]
+                - paragraph [ref=e52]: No timeline events yet — process documents above to extract dates and facts.
+    - button "Open Next.js Dev Tools" [ref=e58] [cursor=pointer]:
+        - img [ref=e59]
