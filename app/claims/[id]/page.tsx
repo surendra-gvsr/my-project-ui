@@ -12,12 +12,15 @@ import {
   type DocumentMetadata,
 } from '@/components/DocumentUploader';
 import { EvidenceTimeline } from '@/components/EvidenceTimeline';
+import { toast } from 'sonner';
 import type { ProcessingResult, ProcessingStatus } from '@/lib/store';
 import {
   ArrowLeft,
+  Download,
   FileText,
   FileType,
   Image,
+  Loader2,
   Mail,
   Sparkles,
 } from 'lucide-react';
@@ -198,6 +201,35 @@ export default function ClaimWorkspacePage() {
 
   const isProcessing = activeSet.size > 0;
 
+  const [isExporting, setIsExporting] = useState(false);
+
+  const hasCompletedDoc = processingResults.some(
+    (r) => r.status === 'complete'
+  );
+  const isExportDisabled =
+    documents.length === 0 || !hasCompletedDoc || isExporting;
+
+  const handleExport = async () => {
+    setIsExporting(true);
+    try {
+      const res = await fetch(
+        `/api/export?claimId=${encodeURIComponent(claimId)}`
+      );
+      if (!res.ok) throw new Error('Export failed');
+      const blob = await res.blob();
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url;
+      a.download = `evidence-pack-${claimId}.pdf`;
+      a.click();
+      URL.revokeObjectURL(url);
+    } catch {
+      toast.error('Export failed — please try again.');
+    } finally {
+      setIsExporting(false);
+    }
+  };
+
   return (
     <main className="min-h-screen bg-background">
       <div className="mx-auto max-w-2xl space-y-6 px-4 py-8">
@@ -226,7 +258,7 @@ export default function ClaimWorkspacePage() {
               </div>
             </div>
           </CardHeader>
-          <CardContent>
+          <CardContent className="space-y-4">
             <div className="flex flex-wrap gap-2">
               {PURPOSES.map((p) => (
                 <span
@@ -240,6 +272,27 @@ export default function ClaimWorkspacePage() {
                   {p}
                 </span>
               ))}
+            </div>
+            <div className="flex justify-end">
+              <Button
+                variant="default"
+                size="sm"
+                onClick={handleExport}
+                disabled={isExportDisabled}
+                aria-label="Export evidence pack as PDF"
+              >
+                {isExporting ? (
+                  <>
+                    <Loader2 className="size-3.5 animate-spin" />
+                    Generating PDF…
+                  </>
+                ) : (
+                  <>
+                    <Download className="size-3.5" />
+                    Export Evidence Pack
+                  </>
+                )}
+              </Button>
             </div>
           </CardContent>
         </Card>
